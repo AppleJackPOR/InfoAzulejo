@@ -16,9 +16,9 @@ Secundários
    2 - Quando um utilizador navega no mapa, se achar pertinente, poderá submeter uma edição da informação relativa a um azulejo. Essa aprovação é realizada com recurso ao cenário secundário 1.
 
 
-##Plano de Trabalho:<br/>
+## Plano de Trabalho:<br/>
 A estruturação será feita por ordem, seguida de duração média e as atividades associadas a cada fase.<br/>
-###Fases:<br/>
+### Fases:<br/>
 1 - Elaboração da proposta de projeto (1 semana).<br/>
 2 - Elaboração de mockups (2 dias).<br/>
 3 - Elaboração do modelo de dados. (2/3 dias).<br/>
