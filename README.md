@@ -12,4 +12,5 @@ Não há aplicações semelhantes, porém há roteiros/sítios com sugestões de
    Ao entrar no website, o utilizador pode abrir o mapa relativo aos azulejos existentes, ao fazer isso pode navegar nele e observar as localizações de cada azulejo submetido. Para além disso, poderá submeter azulejos, sendo necessário enviar uma imagem, anotações e localização, esta informação é guardada numa ou mais sessões.
 Secundários
 # Secundários   
-   1 - Um elemento da staff pode aceder ao menu de submissões, neste pode avaliar a informação relativa a cada azulejo e, caso seja aprovado, este passará a estar disponível no mapa.  2 - Quando um utilizador navega no mapa, se achar pertinente, poderá submeter uma edição da informação relativa a um azulejo. Essa aprovação é realizada com recurso ao cenário secundário 1.
+   1 - Um elemento da staff pode aceder ao menu de submissões, neste pode avaliar a informação relativa a cada azulejo e, caso seja aprovado, este passará a estar disponível no mapa.<br/>
+   2 - Quando um utilizador navega no mapa, se achar pertinente, poderá submeter uma edição da informação relativa a um azulejo. Essa aprovação é realizada com recurso ao cenário secundário 1.
