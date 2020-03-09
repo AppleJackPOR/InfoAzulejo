@@ -14,3 +14,26 @@ Secundários
 ### Secundários   
    1 - Um elemento da staff pode aceder ao menu de submissões, neste pode avaliar a informação relativa a cada azulejo e, caso seja aprovado, este passará a estar disponível no mapa.<br/>
    2 - Quando um utilizador navega no mapa, se achar pertinente, poderá submeter uma edição da informação relativa a um azulejo. Essa aprovação é realizada com recurso ao cenário secundário 1.
+
+
+##Plano de Trabalho:
+A estruturação será feita por ordem, seguida de duração média e as atividades associadas a cada fase.<br/>
+###Fases:
+1 - Elaboração da proposta de projeto (1 semana).
+2 - Elaboração de mockups (2 dias).
+3 - Elaboração do modelo de dados. (2/3 dias).
+4 - Elaboração do Project Charter (4 dias).
+5 - Criar e popular a base de dados.(1 semana).
+6 - Setup do servidor (1 dia).
+7 - Início do desenvolvimento do cenário principal (2 semanas):
+    i) Página Inicial (Escolher entre aceder ao mapa ou descobrir mais informação sobre azulejos);
+    ii)Página do Mapa:
+       a) Apresentar o mapa com os azulejos.
+       b)Possibilidade de submeter azulejos.
+8 - Desenvolvimento do lado staff (2 semanas):
+    i) Página de Submissões (Rever e aceitar submissões).
+9 - Implementação de funcionalidades de menor prioridade (2 semanas):
+    i) Editar informação de azulejos;
+    ii) Procura por localização;
+    iii) Página de Perfil.
+10 - Elaboração da documentação para a entrega final (2 semanas).
