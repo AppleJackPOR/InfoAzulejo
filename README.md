@@ -26,14 +26,14 @@ A estruturação será feita por ordem, seguida de duração média e as ativida
 5 - Criar e popular a base de dados.(1 semana).<br/>
 6 - Setup do servidor (1 dia).<br/>
 7 - Início do desenvolvimento do cenário principal (2 semanas):<br/>
-    i) Página Inicial (Escolher entre aceder ao mapa ou descobrir mais informação sobre azulejos);<br/>
-    ii)Página do Mapa:<br/>
-       a) Apresentar o mapa com os azulejos.<br/>
-       b)Possibilidade de submeter azulejos.<br/>
+   i) Página Inicial (Escolher entre aceder ao mapa ou descobrir mais informação sobre azulejos);<br/>
+   ii)Página do Mapa:<br/>
+      a) Apresentar o mapa com os azulejos.<br/>
+      b)Possibilidade de submeter azulejos.<br/>
 8 - Desenvolvimento do lado staff (2 semanas):<br/>
-    i) Página de Submissões (Rever e aceitar submissões).<br/>
+   i) Página de Submissões (Rever e aceitar submissões).<br/>
 9 - Implementação de funcionalidades de menor prioridade (2 semanas):<br/>
-    i) Editar informação de azulejos;<br/>
-    ii) Procura por localização;<br/>
-    iii) Página de Perfil.<br/>
+   i) Editar informação de azulejos;<br/>
+   ii) Procura por localização;<br/>
+   iii) Página de Perfil.<br/>
 10 - Elaboração da documentação para a entrega final (2 semanas).
