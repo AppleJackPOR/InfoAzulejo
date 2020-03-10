@@ -19,9 +19,9 @@ Secundários
 ## Plano de Trabalho:<br/>
 A estruturação será feita por ordem, seguida de duração média e as atividades associadas a cada fase.<br/>
 ### Fases:<br/>
-1. Elaboração da proposta de projeto (1 semana).<br/> [X]
+1. Elaboração da proposta de projeto (1 semana).<br/> :+1:
 2. Elaboração de mockups (2 dias).<br/>
-3. Elaboração do modelo de dados. (2/3 dias).<br/>
+3. Elaboração do modelo de dados. (2/3 dias).<br/> :+1:
 4. Elaboração do *Project Charter* (4 dias).<br/>
 5. Criar e popular a base de dados.(1 semana).<br/>
 6. *Setup* do servidor (1 dia).<br/>
