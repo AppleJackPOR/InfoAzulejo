@@ -28,12 +28,12 @@ A estruturação será feita por ordem, seguida de duração média e as ativida
 7. Início do desenvolvimento do cenário principal (2 semanas):<br/>
    - Página Inicial (Escolher entre aceder ao mapa ou descobrir mais informação sobre azulejos);<br/>
    - Página do Mapa:<br/>
-     _ Apresentar o mapa com os azulejos.<br/>
-     _ Possibilidade de submeter azulejos.<br/>
+     -Apresentar o mapa com os azulejos.<br/>
+     -Possibilidade de submeter azulejos.<br/>
 8. Desenvolvimento do lado staff (2 semanas):<br/>
-   _ Página de Submissões (Rever e aceitar submissões).<br/>
+   - Página de Submissões (Rever e aceitar submissões).<br/>
 9. Implementação de funcionalidades de menor prioridade (2 semanas):<br/>
-   _ Editar informação de azulejos;<br/>
-   _ Procura por localização;<br/>
-   _ Página de Perfil.<br/>
+   - Editar informação de azulejos;<br/>
+   - Procura por localização;<br/>
+   - Página de Perfil.<br/>
 10. Elaboração da documentação para a entrega final (2 semanas).
