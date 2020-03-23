@@ -14,24 +14,24 @@ Não há aplicações semelhantes, porém há roteiros/sítios com sugestões de
    Ao entrar no website, o utilizador tem disponível o mapa relativo aos azulejos existentes, podendo navegar nele e observar as localizações de cada azulejo submetido. Selecionando um azulejo, aparecerá o seu nome, uma imagem dele, o século em que foi concebido e um botão para obter a informação completa. Escolhendo a opção de mais informação, uma janela com a informação de nome, morada, estado, século e descrição do azulejo serão apresentados, juntamente com uma imagem dele.
    ![alt text](https://raw.githubusercontent.com/AppleJackPOR/InfoAzulejo/master/Segunda%20Entrega/Mockups/1%20-%20MainPage.png)![alt text](https://raw.githubusercontent.com/AppleJackPOR/InfoAzulejo/master/Segunda%20Entrega/Mockups/2%20-%20MainPage_Info.png)
    ![alt text](https://raw.githubusercontent.com/AppleJackPOR/InfoAzulejo/master/Segunda%20Entrega/Mockups/3%20-%20AzulejoPage.png)
-
+<br/>
 ### Secundários   
 1. Um elemento da *staff* pode aceder ao menu de submissões, neste pode avaliar a informação relativa a cada azulejo e, caso seja aprovado, este passará a estar disponível no mapa.<br/>
    ![alt text](https://raw.githubusercontent.com/AppleJackPOR/InfoAzulejo/master/Segunda%20Entrega/Mockups/6%20-%20SubmissionsPage_Staff.png)![alt text](https://raw.githubusercontent.com/AppleJackPOR/InfoAzulejo/master/Segunda%20Entrega/Mockups/7.1%20-%20Submissions_Staff.png)
 2. Ao entrar no website, o utilizador carrega no botão de submeter azulejos, que se encontra na parte inferior. Para isto, é necessário enviar uma imagem, anotações e localização, esta informação é guardada numa ou mais sessões.
 ![alt text](https://raw.githubusercontent.com/AppleJackPOR/InfoAzulejo/master/Segunda%20Entrega/Mockups/4%20-%20SubmeterPage.png)
-
+<br/>
 
 ## Personas:
 - Utilizador: Este é o principal ator no contexto do projeto, é o responsável pelas submissões de novos azulejos, assim como a edição da informação existente. Apesar disso, a sua principal função é observar os azulejos publicados.
 - Staff: Revê submissões feitas por utilizadores.
-
+<br/>
 ## Plano de Trabalho:<br/>
 ![alt text](https://raw.githubusercontent.com/AppleJackPOR/InfoAzulejo/master/Segunda%20Entrega/WorkPlan/Gantt%20Chart.png)
-
+<br/>
 ## WBS:<br/>
 ![alt text](https://raw.githubusercontent.com/AppleJackPOR/InfoAzulejo/master/Segunda%20Entrega/WorkPlan/WBS.png)
-
+<br/>
 ## Modelo de Domínio:<br/>
 ![alt text](https://raw.githubusercontent.com/AppleJackPOR/InfoAzulejo/master/Segunda%20Entrega/ModeloDominio.png)
 
