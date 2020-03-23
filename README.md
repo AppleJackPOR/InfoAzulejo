@@ -17,7 +17,7 @@ Não há aplicações semelhantes, porém há roteiros/sítios com sugestões de
 <br/>
 ### Secundários   
 1. Um elemento da *staff* pode aceder ao menu de submissões, neste pode avaliar a informação relativa a cada azulejo e, caso seja aprovado, este passará a estar disponível no mapa.<br/>
-   ![alt text](https://raw.githubusercontent.com/AppleJackPOR/InfoAzulejo/master/Segunda%20Entrega/Mockups/6%20-%20SubmissionsPage_Staff.png)![alt text](https://raw.githubusercontent.com/AppleJackPOR/InfoAzulejo/master/Segunda%20Entrega/Mockups/7.1%20-%20Submissions_Staff.png)
+   ![alt text](https://raw.githubusercontent.com/AppleJackPOR/InfoAzulejo/master/Segunda%20Entrega/Mockups/6%20-%20SubmissionsPage_Staff.png)![alt text](https://raw.githubusercontent.com/AppleJackPOR/InfoAzulejo/master/Segunda%20Entrega/Mockups/7.1%20-%20Submissions_Staff.png)<br/>
    <br/>
 2. Ao entrar no website, o utilizador carrega no botão de submeter azulejos, que se encontra na parte inferior. Para isto, é necessário enviar uma imagem, anotações e localização, esta informação é guardada numa ou mais sessões.
 ![alt text](https://raw.githubusercontent.com/AppleJackPOR/InfoAzulejo/master/Segunda%20Entrega/Mockups/4%20-%20SubmeterPage.png)
