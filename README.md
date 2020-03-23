@@ -11,20 +11,20 @@ Não há aplicações semelhantes, porém há roteiros/sítios com sugestões de
 
 ## Cenários:
 ### Principal
-   Ao entrar no *website*, o utilizador pode abrir o mapa relativo aos azulejos existentes, ao fazer isso pode navegar nele e observar as localizações de cada azulejo submetido. Para além disso, poderá submeter azulejos, sendo necessário enviar uma imagem, anotações e localização, esta informação é guardada numa ou mais sessões.
+   Ao entrar no website, o utilizador tem disponível o mapa relativo aos azulejos existentes, podendo navegar nele e observar as localizações de cada azulejo submetido. Selecionando um azulejo, aparecerá o seu nome, uma imagem dele, o século em que foi concebido e um botão para obter a informação completa. Escolhendo a opção de mais informação, uma janela com a informação de nome, morada, estado, século e descrição do azulejo serão apresentados, juntamente com uma imagem dele
 
 ### Secundários   
 1. Um elemento da *staff* pode aceder ao menu de submissões, neste pode avaliar a informação relativa a cada azulejo e, caso seja aprovado, este passará a estar disponível no mapa.<br/>
-2. Quando um utilizador navega no mapa, se achar pertinente, poderá submeter uma edição da informação relativa a um azulejo. Essa aprovação é realizada com recurso ao cenário secundário 1.
+2. Ao entrar no website, o utilizador carrega no botão de submeter azulejos, que se encontra na parte inferior. Para isto, é necessário enviar uma imagem, anotações e localização, esta informação é guardada numa ou mais sessões.
 
 
 ## Plano de Trabalho:<br/>
 A estruturação será feita por ordem, seguida de duração média e as atividades associadas a cada fase.<br/>
 ### Fases:<br/>
 1. Elaboração da proposta de projeto (1 semana). :+1: <br/>
-2. Elaboração de *mockups* (2 dias).<br/>
+2. Elaboração de *mockups* (2 dias). :+1:<br/>
 3. Elaboração do modelo de dados (2/3 dias). :+1: <br/> 
-4. Elaboração do *Project Charter* (4 dias).<br/>
+4. Elaboração do *Project Charter* (4 dias).:+1:<br/>
 5. Criar e popular a base de dados (1 semana).<br/>
 6. *Setup* do servidor (1 dia).<br/>
 7. Início do desenvolvimento do cenário principal (2 semanas):<br/>
