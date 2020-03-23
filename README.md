@@ -24,6 +24,10 @@ Não há aplicações semelhantes, porém há roteiros/sítios com sugestões de
 
 ## Plano de Trabalho:<br/>
 ![alt text](https://raw.githubusercontent.com/AppleJackPOR/InfoAzulejo/master/Segunda%20Entrega/WorkPlan/Gantt%20Chart.png)
-![alt text](https://raw.githubusercontent.com/AppleJackPOR/InfoAzulejo/master/Segunda%20Entrega/WorkPlan/Gantt%20Chart.pnghttps://raw.githubusercontent.com/AppleJackPOR/InfoAzulejo/master/Segunda%20Entrega/WorkPlan/Gantt%20Chart.pnghttps://raw.githubusercontent.com/AppleJackPOR/InfoAzulejo/master/Segunda%20Entrega/WorkPlan/Gantt%20Chart.png)
-![alt text](https://raw.githubusercontent.com/AppleJackPOR/InfoAzulejo/master/Segunda%20Entrega/WorkPlan/Gantt%20Chart.png)
-![alt text](https://raw.githubusercontent.com/AppleJackPOR/InfoAzulejo/master/Segunda%20Entrega/WorkPlan/Gantt%20Chart.pnghttps://raw.githubusercontent.com/AppleJackPOR/InfoAzulejo/master/Segunda%20Entrega/WorkPlan/Gantt%20Chart.png)
+
+## WBS:<br/>
+![alt text](https://raw.githubusercontent.com/AppleJackPOR/InfoAzulejo/master/Segunda%20Entrega/WorkPlan/WBS.png)
+
+## Modelo de Domínio:<br/>
+![alt text](https://raw.githubusercontent.com/AppleJackPOR/InfoAzulejo/master/Segunda%20Entrega/ModeloDominio.png)
+![alt text]()
