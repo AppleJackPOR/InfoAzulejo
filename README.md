@@ -23,23 +23,7 @@ Não há aplicações semelhantes, porém há roteiros/sítios com sugestões de
 - Staff: Revê submissões feitas por utilizadores.
 
 ## Plano de Trabalho:<br/>
-A estruturação será feita por ordem, seguida de duração média e as atividades associadas a cada fase.<br/>
-### Fases:<br/>
-1. Elaboração da proposta de projeto (1 semana). :+1: <br/>
-2. Elaboração de *mockups* (2 dias). :+1:<br/>
-3. Elaboração do modelo de dados (2/3 dias). :+1: <br/> 
-4. Elaboração do *Project Charter* (4 dias).:+1:<br/>
-5. Criar e popular a base de dados (1 semana).<br/>
-6. *Setup* do servidor (1 dia).<br/>
-7. Início do desenvolvimento do cenário principal (2 semanas):<br/>
-   - Página Inicial (Escolher entre aceder ao mapa ou descobrir mais informação sobre azulejos);<br/>
-   - Página do Mapa:<br/>
-     -Apresentar o mapa com os azulejos.<br/>
-     -Possibilidade de submeter azulejos.<br/>
-8. Desenvolvimento do lado staff (2 semanas):<br/>
-   - Página de Submissões (Rever e aceitar submissões).<br/>
-9. Implementação de funcionalidades de menor prioridade (2 semanas):<br/>
-   - Editar informação de azulejos;<br/>
-   - Procura por localização;<br/>
-   - Página de Perfil.<br/>
-10. Elaboração da documentação para a entrega final (2 semanas).
+![alt text](https://raw.githubusercontent.com/AppleJackPOR/InfoAzulejo/master/Segunda%20Entrega/WorkPlan/Gantt%20Chart.png)
+![alt text](https://raw.githubusercontent.com/AppleJackPOR/InfoAzulejo/master/Segunda%20Entrega/WorkPlan/Gantt%20Chart.pnghttps://raw.githubusercontent.com/AppleJackPOR/InfoAzulejo/master/Segunda%20Entrega/WorkPlan/Gantt%20Chart.pnghttps://raw.githubusercontent.com/AppleJackPOR/InfoAzulejo/master/Segunda%20Entrega/WorkPlan/Gantt%20Chart.png)
+![alt text](https://raw.githubusercontent.com/AppleJackPOR/InfoAzulejo/master/Segunda%20Entrega/WorkPlan/Gantt%20Chart.png)
+![alt text](https://raw.githubusercontent.com/AppleJackPOR/InfoAzulejo/master/Segunda%20Entrega/WorkPlan/Gantt%20Chart.pnghttps://raw.githubusercontent.com/AppleJackPOR/InfoAzulejo/master/Segunda%20Entrega/WorkPlan/Gantt%20Chart.png)
