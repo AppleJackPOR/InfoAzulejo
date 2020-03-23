@@ -26,13 +26,11 @@ Não há aplicações semelhantes, porém há roteiros/sítios com sugestões de
 ## Personas:
 - Utilizador: Este é o principal ator no contexto do projeto, é o responsável pelas submissões de novos azulejos, assim como a edição da informação existente. Apesar disso, a sua principal função é observar os azulejos publicados.
 - Staff: Revê submissões feitas por utilizadores.
-<br/>
+
 ## Plano de Trabalho:<br/>
-![alt text](https://raw.githubusercontent.com/AppleJackPOR/InfoAzulejo/master/Segunda%20Entrega/WorkPlan/Gantt%20Chart.png)
-<br/>
+![alt text](https://raw.githubusercontent.com/AppleJackPOR/InfoAzulejo/master/Segunda%20Entrega/WorkPlan/Gantt%20Chart.png)<br/>
 ## WBS:<br/>
-![alt text](https://raw.githubusercontent.com/AppleJackPOR/InfoAzulejo/master/Segunda%20Entrega/WorkPlan/WBS.png)
-<br/>
+![alt text](https://raw.githubusercontent.com/AppleJackPOR/InfoAzulejo/master/Segunda%20Entrega/WorkPlan/WBS.png)<br/>
 ## Modelo de Domínio:<br/>
 ![alt text](https://raw.githubusercontent.com/AppleJackPOR/InfoAzulejo/master/Segunda%20Entrega/ModeloDominio.png)
 
