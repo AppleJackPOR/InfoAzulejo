@@ -11,7 +11,7 @@ Não há aplicações semelhantes, porém há roteiros/sítios com sugestões de
 
 ## Cenários:
 ### Principal
-   Ao entrar no website, o utilizador tem disponível o mapa relativo aos azulejos existentes, podendo navegar nele e observar as localizações de cada azulejo submetido. Selecionando um azulejo, aparecerá o seu nome, uma imagem dele, o século em que foi concebido e um botão para obter a informação completa. Escolhendo a opção de mais informação, uma janela com a informação de nome, morada, estado, século e descrição do azulejo serão apresentados, juntamente com uma imagem dele.
+   Ao entrar no website, o utilizador tem disponível o mapa relativo aos azulejos existentes, podendo navegar nele e observar as localizações de cada azulejo submetido. Selecionando um azulejo, aparecerá o seu nome, uma imagem dele, o século em que foi concebido e um botão para obter a informação completa. Escolhendo a opção de mais informação, uma janela com a informação de nome, morada, estado, século e descrição do azulejo serão apresentados, juntamente com uma imagem dele.<br/>
    ![alt text](https://raw.githubusercontent.com/AppleJackPOR/InfoAzulejo/master/Segunda%20Entrega/Mockups/1%20-%20MainPage.png)![alt text](https://raw.githubusercontent.com/AppleJackPOR/InfoAzulejo/master/Segunda%20Entrega/Mockups/2%20-%20MainPage_Info.png)
    ![alt text](https://raw.githubusercontent.com/AppleJackPOR/InfoAzulejo/master/Segunda%20Entrega/Mockups/3%20-%20AzulejoPage.png)
 <br/>
