@@ -18,6 +18,10 @@ Não há aplicações semelhantes, porém há roteiros/sítios com sugestões de
 2. Ao entrar no website, o utilizador carrega no botão de submeter azulejos, que se encontra na parte inferior. Para isto, é necessário enviar uma imagem, anotações e localização, esta informação é guardada numa ou mais sessões.
 
 
+## Personas:
+- Utilizador: Este é o principal ator no contexto do projeto, é o responsável pelas submissões de novos azulejos, assim como a edição da informação existente. Apesar disso, a sua principal função é observar os azulejos publicados.
+- Staff: Revê submissões feitas por utilizadores.
+
 ## Plano de Trabalho:<br/>
 A estruturação será feita por ordem, seguida de duração média e as atividades associadas a cada fase.<br/>
 ### Fases:<br/>
