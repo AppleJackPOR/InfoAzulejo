@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+
+<head>
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
+
+
+    <script src="./javascripts/leaflet-routing-machine.js"></script>
+    <link rel="stylesheet" href="./stylesheets/leaflet-routing-machine.css">
+
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.css">
+    <script src="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.js"></script>
+
+    <script src="javascripts/index.js"></script>
+
+</head>
+
+<body>
+    <div class="headerHome">
+
+            <img src="./images/azulejo.jpg" alt="errou"/>
+
+        <div class="login-box">
+            <div class="form">
+                <p>
+                    "username"
+                </p>
+                <div class="botoes">
+                    <button class="btn btn1">Editar Perfil</button>
+                    <button class="btn btn2">Logout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="/">Mapa</a></li>
+            <li><a href="azulejo">Lista de Azulejos</a></li>
+            <li><a href="equipa">Junta-te à Equipa</a></li>
+        </ul>
+    
+    </nav>
+
+    <div class="info-present">
+        <div id="map" class="mapDiv" >
+     
+        </div>
+        <div class="azulejo-box" id="azulejobox">
+            <div class="imagemProvisoria">
+            </div>
+            <table id="tabelAtual" style="width:100%">
+                <tr>
+                    <th>Nome: </th>
+                    <th id="nome">---</th>
+                </tr>
+                <tr>
+                    <th>Ano: </td>
+                    <td id="ano">---</td>
+                </tr>
+                <tr>
+                    <th>Condição: </td>
+                    <td id="condicao">---</td>
+                </tr>
+                <tr>
+                    <th>Descrição: </td>
+                    <td id="info">---</td>
+                </tr>
+            </table>
+        </div>
+      </div>
+    
+
+
+   
+</body>
+ <div class="submissao">
+        <a href="submeter" class="btnSubmeter">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Submeter Azulejo</a>
+        </div>
+</html>
