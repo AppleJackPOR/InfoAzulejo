@@ -32,5 +32,5 @@ Não há aplicações semelhantes, porém há roteiros/sítios com sugestões de
 ## WBS:<br/>
 ![alt text](https://raw.githubusercontent.com/AppleJackPOR/InfoAzulejo/master/Segunda%20Entrega/WorkPlan/WBS.png)<br/>
 ## Modelo de Domínio:<br/>
-![alt text](https://raw.githubusercontent.com/AppleJackPOR/InfoAzulejo/master/Segunda%20Entrega/ModeloDominio.png)
+![alt text](https://raw.githubusercontent.com/AppleJackPOR/InfoAzulejo/master/Terceira%20Entrega/ModeloDominio.png)
 
