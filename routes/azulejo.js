@@ -10,7 +10,6 @@ router.get('/', function(req, res, next) {
             return;
         }
         res.status(result.code).send(result.data);
-
     }, next)
 });
 
@@ -22,7 +21,17 @@ router.get('/azulejo', function(req, res, next) {
             return;
         }
         res.status(result.code).send(result.data);
+    }, next)
+});
 
+router.get('/azulejoDist', function(req, res, next) {
+    infoAzulejoDAO.getAzulejoDist(function(err, result) {
+        if (err) {
+            res.statusMessage = result.status;
+            res.status(result.code).json(err);
+            return;
+        }
+        res.status(result.code).send(result.data);
     }, next)
 });
 

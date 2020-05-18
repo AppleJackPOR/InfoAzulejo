@@ -3,10 +3,7 @@ var router = express.Router();
 var url = require('./connection').url;
 var MongoClient = require('mongodb').MongoClient;
 var ObjectId = require('mongodb').ObjectID;
-
-
-//var mongoDAO = require('../models/azulejosDAO');
-
+const https = require('https');
 
 /*
 module.exports.getAzulejo = function() {
@@ -30,23 +27,62 @@ module.exports.getAzulejo = function() {
 }
 */
 
+module.exports.validarUser = function(utilizador, callback, next) {
+    MongoClient.connect(url, function(err, client) {
+        if (err)
+            throw err;
+        var dbA = client.db('app_azulejos');
+        var obj = {
+            'username': utilizador.nome,
+            'password': utilizador.password
+        };
+        dbA.collection('azulejos_user', function(err, collection) {
+            if (err)
+                throw err;
+            collection.find(obj).toArray(function(err, results) {
+                if (results.length == 0) {
+                    callback(err, { code: 500, status: "Error in a database query" })
+                    return;
+                } else
+                    callback(false, { code: 200, status: "ok", data: results })
+            });
+        });
+    });
+}
 
 module.exports.getAzulejo = function(callback, next) {
     MongoClient.connect(url, function(err, client) {
         if (err)
             throw err;
-
         var dbA = client.db('app_azulejos');
         dbA.collection('azulejos_info', function(err, collection) {
             if (err)
                 throw err;
-
             collection.find().toArray(function(err, results) {
-
                 callback(false, { code: 200, status: "ok", data: results })
-
             });
         })
+    })
+}
+
+module.exports.getAzulejoDist = function(callback, next) {
+    MongoClient.connect(url, function(err, client) {
+        if (err)
+            throw err;
+        var dbA = client.db('app_azulejos');
+        dbA.collection('azulejos_info').aggregate([{
+            "$geoNear": {
+                "near": {
+                    "type": "Point",
+                    "coordinates": [parseFloat(req.query.lng), parseFloat(req.query.lat)]
+                },
+                "distanceField": "distance",
+                "spherical": true,
+            }
+        }]).toArray(function(err, items) {
+            res.send(items);
+            client.close();
+        });;
     })
 }
 
@@ -55,16 +91,23 @@ module.exports.getAzulejoEspecifico = function(id, callback, next) {
     MongoClient.connect(url, function(err, client) {
         if (err)
             throw err;
-
         var dbA = client.db('app_azulejos');
         dbA.collection('azulejos_info', function(err, collection) {
             if (err)
                 throw err;
             console.log(collection);
-            collection.find({ _id: new ObjectId(id) }).toArray(function(err, results) {
+            collection.findOne({ _id: new ObjectId(id) }, function(err, results) {
                 console.log(results);
-                callback(false, { code: 200, status: "ok", data: results })
-
+                https.get('https://storage.bunnycdn.com/azulejos/' + id + '/?AccessKey=81883e8b-c3e8-49c9-bec23323819a-4f45-4990', (response) => {
+                    console.log('statusCode:', response.statusCode);
+                    response.on('data', (d) => {
+                        var json = JSON.parse(d.toString()).length
+                        results['nrImages'] = json;
+                        callback(false, { code: 200, status: "ok", data: results })
+                    });
+                }).on('error', (e) => {
+                    console.error(e);
+                });
             });
         })
     })
@@ -75,12 +118,10 @@ module.exports.getCondicao = function(callback, next) {
     MongoClient.connect(url, function(err, client) {
         if (err)
             throw err;
-
         var dbA = client.db('app_azulejos');
         dbA.collection('azulejos_condicao', function(err, collection) {
             if (err)
                 throw err;
-
             collection.find().toArray(function(err, results) {
                 callback(false, { code: 200, status: "ok", data: results })
             });
@@ -92,12 +133,10 @@ module.exports.getUser = function(callback, next) {
     MongoClient.connect(url, function(err, client) {
         if (err)
             throw err;
-
         var dbA = client.db('app_azulejos');
         dbA.collection('azulejos_user', function(err, collection) {
             if (err)
                 throw err;
-
             collection.find().toArray(function(err, results) {
                 callback(false, { code: 200, status: "ok", data: results })
 
@@ -121,7 +160,6 @@ module.exports.inserirAzulejo = function(azulejo, callback, next) {
         dbA.collection('azulejos_info', function(err, collection) {
             if (err)
                 throw err;
-
             collection.insertOne({
                 obj,
                 function(err, res) {
@@ -138,7 +176,6 @@ module.exports.getSessao = function(callback, next) {
     MongoClient.connect(url, function(err, client) {
         if (err)
             throw err;
-
         var dbA = client.db('app_azulejos');
         dbA.collection('azulejos_sessoes', function(err, collection) {
             if (err)
@@ -146,22 +183,47 @@ module.exports.getSessao = function(callback, next) {
 
             collection.find().toArray(function(err, results) {
                 callback(false, { code: 200, status: "ok", data: results })
-
             });
         })
     })
 }
 
-router.get('/:id', function(req, res, next) {
-    mongo.connect(process.env.DB_CONNECTION, { useUnifiedTopology: true }, function(err, client) {
-        if (err) throw err;
-        var marker = new ObjectId(req.params.id)
-        var db = client.db('app_azulejos');
-
-        db.collection("azulejos_info").findOne({ "_id": marker }, function(findErr, doc) {
+module.exports.inserirImagem = function(callback, next) {
+    MongoClient.connect(url, function(err, client) {
+        if (err)
+            throw err;
+        var dbA = client.db('app_azulejos');
+        dbA.collection("azulejos_info").insertOne(document, function(findErr, doc) {
             if (findErr) throw findErr;
             client.close();
-            res.send(doc);
+            for (const i in filePathArray) {
+                console.log(filePathArray[i])
+                fs.readFile(filePathArray[i], function(err, data) {
+                    if (err) throw err;
+                    console.log(filePathArray[i])
+                    var options = {
+                        'method': 'PUT',
+                        'hostname': 'storage.bunnycdn.com',
+                        'path': '/azulejos/' + doc.insertedId + '/' + i + '.jpg?AccessKey= 81883e8b-c3e8-49c9-bec23323819a-4f45-4990',
+                        'headers': {
+                            'Content-Type': 'image/jpeg'
+                        }
+                    };
+                    var reqBunny = https.request(options, function(resBunny) {
+                        var chunks = [];
+
+                        resBunny.on("data", function(chunk) { chunks.push(chunk); });
+                        resBunny.on("end", function(chunk) {
+                            body = Buffer.concat(chunks);
+                            teste.push(body.toString());
+                        });
+                        resBunny.on("error", function(error) { res.send(error); });
+                    });
+                    reqBunny.write(data);
+                    reqBunny.end();
+                });
+            }
+            res.send('done');
         })
     })
-})
+}

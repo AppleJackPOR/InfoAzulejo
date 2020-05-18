@@ -1,4 +1,14 @@
 $(window).on('load', function() {
+
+    if (sessionStorage.getItem("utilizador") != null) {
+        var inicial = document.getElementById("form");
+        var logged = document.getElementById("form1");
+        inicial.style.display = "none";
+        logged.style.display = "block";
+        var html = "<p>" + sessionStorage.getItem("utilizador") + "</p>";
+        document.getElementById("dados").innerHTML += html;
+    }
+
     navigator.geolocation.getCurrentPosition(getPosition);
     var map = L.map('map').setView([sessionStorage.getItem('lat'), sessionStorage.getItem('long'), ], 16);
 
@@ -53,6 +63,24 @@ function getPosition(position) {
 
 }
 
+var slideIndex = 1;
+
+function plusDivs(n) {
+    showDivs(slideIndex += n);
+}
+
+function showDivs(n) {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    if (n > x.length) { slideIndex = 1 }
+    if (n < 1) { slideIndex = x.length }
+    for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+    }
+    x[slideIndex - 1].style.display = "block";
+    x[slideIndex - 1].style.height = "220px";
+}
+
 function markerClick() {
     console.log(this.options.id);
     document.getElementById("azulejobox").style.backgroundColor = "white";
@@ -66,22 +94,73 @@ function markerClick() {
         // receiving in json
         dataType: "json",
         success: function(res, status, jqXHR) {
-
             if (res.err) {
                 console.log(JSON.stringify(res));
                 return;
             }
-
-            document.getElementById("nome").innerHTML = res[0].Nome;
-            document.getElementById("ano").innerHTML = res[0].Ano;
-            document.getElementById("condicao").innerHTML = res[0].Condicao.toLowerCase();
-            document.getElementById("info").innerHTML = res[0].Info;
-
-
-
+            for (var i = 0; i < res.nrImages; i++) {
+                var html = '<img class="mySlides" src="https://azulejos.b-cdn.net/' + res._id + '/' + i + '.jpg" style="width:100%">'
+                document.getElementById("slideshow").innerHTML += html;
+            }
+            document.getElementById("slideshow").innerHTML += '<button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>'
+            document.getElementById("slideshow").innerHTML += '<button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>'
+            showDivs(slideIndex);
+            document.getElementById("nome").innerHTML = res.Nome;
+            document.getElementById("ano").innerHTML = res.Ano;
+            document.getElementById("condicao").innerHTML = res.Condicao.toLowerCase();
+            document.getElementById("info").innerHTML = res.Info;
         }
 
     });
 
 
+}
+
+var tentativas = 3;
+
+function validate() {
+    console.log("carregaste");
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+    $.ajax({
+        url: "/api/user/login",
+        method: "post",
+        contentType: "application/json",
+        data: JSON.stringify({
+            nome: username,
+            password: password,
+        }),
+        success: function(res, status) {
+            console.log(username);
+            sessionStorage.setItem('utilizador', username);
+            console.log(sessionStorage.getItem('utilizador'));
+            var inicial = document.getElementById("form");
+            var logged = document.getElementById("form1");
+            inicial.style.display = "none";
+            logged.style.display = "block";
+            var html = "<p>" + sessionStorage.getItem("utilizador") + "</p>";
+            document.getElementById("dados").innerHTML += html;
+            document.getElementById("password").value = "";
+        },
+        error: function() {
+            document.getElementById("password").value = "";
+            tentativas--;
+            alert("Dados errados, tem " + tentativas + " tentativas");
+            if (tentativas == 0) {
+                alert("Número limite de tentativas atingido")
+                document.getElementById("entrar").disabled = true;
+            }
+        }
+    });
+
+}
+
+
+function logout() {
+    var inicial = document.getElementById("form");
+    var logged = document.getElementById("form1");
+    inicial.style.display = "block";
+    logged.style.display = "none";
+    document.getElementById("dados").innerHTML = "";
+    sessionStorage.removeItem("utilizador");
 }

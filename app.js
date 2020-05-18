@@ -8,6 +8,7 @@ var indexRouter = require('./routes/index');
 var azulejoRouter = require('./routes/azulejo')
 var equipaRouter = require('./routes/equipa')
 var submeterRouter = require('./routes/submeter')
+var userRouter = require('./routes/user')
 
 
 
@@ -27,6 +28,7 @@ app.use('/', indexRouter);
 app.use('/api/azulejo', azulejoRouter);
 app.use('/api/equipa', equipaRouter);
 app.use('/api/submeter', submeterRouter);
+app.use('/api/user', userRouter);
 
 
 

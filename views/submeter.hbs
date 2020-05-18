@@ -50,13 +50,24 @@
             <img src="./images/azulejo.jpg" alt="errou"/>
 
         <div class="login-box">
-            <div class="form">
-                <p>
-                    "username"
-                </p>
+            <div class="form" id="form">
                 <div class="botoes">
-                    <button class="btn btn1">Editar Perfil</button>
-                    <button class="btn btn2">Logout</button>
+                    <div class="username">
+                        <input type="text" id="username" placeholder="Username">
+                    </div>
+                    <div class="password">
+                        <input type="password" id="password" placeholder="Password">
+                    </div>
+                    <button class="btn btn1" id="entrar" onclick="validate()">Entrar</button>
+                    <button class="btn btn2" id="registo">Criar Conta</button>
+                </div>
+            </div>
+            <div class="form1" id="form1">
+                <div class="botoes">
+                    <div class="dados" id="dados">
+                    </div>
+                    <button class="btn btn1" id="editar">Editar Perfil</button>
+                    <button class="btn btn2" id="sair" onclick="logout()">Terminar Sessão</button>
                 </div>
             </div>
         </div>

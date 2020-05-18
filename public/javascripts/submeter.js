@@ -1,4 +1,14 @@
 $(window).on('load', function() {
+
+    if (sessionStorage.getItem("utilizador") != null) {
+        var inicial = document.getElementById("form");
+        var logged = document.getElementById("form1");
+        inicial.style.display = "none";
+        logged.style.display = "block";
+        var html = "<p>" + sessionStorage.getItem("utilizador") + "</p>";
+        document.getElementById("dados").innerHTML += html;
+    }
+
     navigator.geolocation.getCurrentPosition(getPosition);
     var map = L.map('mapSubmeter').setView([sessionStorage.getItem('lat'), sessionStorage.getItem('long'), ], 4);
     var geocodeService = L.esri.Geocoding.geocodeService();
@@ -137,3 +147,52 @@ function submeterAzulejo() {
     });
 
 };
+
+var tentativas = 3;
+
+function validate() {
+    console.log("carregaste");
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+    $.ajax({
+        url: "/api/user/login",
+        method: "post",
+        contentType: "application/json",
+        data: JSON.stringify({
+            nome: username,
+            password: password,
+        }),
+        success: function(res, status) {
+            console.log(username);
+            sessionStorage.setItem('utilizador', username);
+            console.log(sessionStorage.getItem('utilizador'));
+            var inicial = document.getElementById("form");
+            var logged = document.getElementById("form1");
+            inicial.style.display = "none";
+            logged.style.display = "block";
+            var html = "<p>" + sessionStorage.getItem("utilizador") + "</p>";
+            document.getElementById("dados").innerHTML += html;
+            document.getElementById("password").value = "";
+        },
+        error: function() {
+            document.getElementById("password").value = "";
+            tentativas--;
+            alert("Dados errados, tem " + tentativas + " tentativas");
+            if (tentativas == 0) {
+                alert("Número limite de tentativas atingido")
+                document.getElementById("entrar").disabled = true;
+            }
+        }
+    });
+
+}
+
+
+function logout() {
+    var inicial = document.getElementById("form");
+    var logged = document.getElementById("form1");
+    inicial.style.display = "block";
+    logged.style.display = "none";
+    document.getElementById("dados").innerHTML = "";
+    sessionStorage.removeItem("utilizador");
+}

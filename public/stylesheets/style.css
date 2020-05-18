@@ -1,398 +1,459 @@
-    .headerHome {
-        width: 100%;
-        display: flex;
-        height: 15%;
-        margin-top: 0%;
-        min-height: 120px;
-    }
-    
-    .headerHome img {
-        margin-left: 5%;
-        height: 120px;
-        width: 75%;
-        object-fit: cover;
-    }
-    
-    .headerHome::after {
-        content: '';
-        display: table;
-        clear: both;
-    }
-    
-    .headerHome .login-box {
-        width: 15%;
-        min-width: 90px;
-        height: 120px;
-        margin-right: 5%;
-        text-align: center;
-        background: rgb(24, 52, 176, 0.85);
-    }
-    
-    .btn {
-        background: grey;
-        color: rgb(24, 52, 176, 0.85);
-        display: block;
-        width: 60%;
-        min-width: 67px;
-        margin-left: 20%;
-        border: 2px solid #000;
-        font-family: "montserrat", sans-serif;
-        text-transform: uppercase;
-        margin-bottom: 4%;
-        cursor: pointer;
-        transition: color 0.4s linear;
-        font-weight: bold;
-    }
-    
-    .btn:hover {
-        color: grey;
-        background-color: #000;
-    }
-    
-    body {
-        background-color: grey;
-    }
-    
-    nav ul {
-        display: inline-block;
-        padding: 1%;
-        list-style: none;
-        background: rgb(24, 52, 176, 0.85);
-        border-width: 5px;
-        width: 88%;
-        margin-left: 5%;
-        margin-right: 1%;
-    }
-    
-    nav li {
-        display: inline-block;
-        width: 30%;
-        position: relative;
-        text-align: center;
-        vertical-align: center;
-    }
-    
-    nav a {
-        color: whitesmoke;
-        text-decoration: none;
-        text-transform: uppercase;
-        font-family: 'Times New Roman', Times, serif;
-        font-size: 14px;
-        display: block;
-    }
-    
-    nav a:hover {
-        color: #F9FD0A;
-    }
-    
-    nav a::before {
-        content: '';
-        display: block;
-        height: 5px;
-        background-color: #444;
-        margin-bottom: 1.5%;
-        width: 0%;
-        transition: all ease-in-out 400ms;
-    }
-    
-    nav a:hover::before {
-        margin-left: 40%;
-        margin-right: 40%;
-        width: 20%;
-    }
-    
-    .info-present {
-        display: flex;
-    }
-    
-    .mapDiv {
-        text-align: center;
-        margin-left: 5%;
-        position: relative;
-    }
-    
-    #map {
-        height: 60%;
-        min-height: 500px;
-        width: 70%;
-        position: relative;
-        margin-top: 0;
-        margin-left: 5%;
-    }
-    
-    .azulejo-box {
-        margin-left: 0%;
-        margin-right: 5%;
-        width: 20%;
-        background: rgb(26, 38, 38, 0.5);
-        text-align: center;
-    }
-    
-    .imagemProvisoria {
-        height: 40%;
-    }
-    
-    #tabelAtual {
-        text-align: left;
-    }
-    /* 
+.headerHome {
+    width: 100%;
+    display: flex;
+    height: 15%;
+    margin-top: 0%;
+    min-height: 120px;
+}
 
+.headerHome img {
+    margin-left: 5%;
+    height: 120px;
+    width: 75%;
+    object-fit: cover;
+}
 
+.headerHome::after {
+    content: '';
+    display: table;
+    clear: both;
+}
 
-    MUDAR ISTO!!!!!!!!!!!!!!!!!!!!!!!!!
+.headerHome .login-box {
+    width: 15%;
+    min-width: 90px;
+    height: 120px;
+    margin-right: 5%;
+    text-align: center;
+    background: rgb(24, 52, 176, 0.85);
+}
 
-    
-    */
-    
-    #tabelAtual td {
-        display: block;
-        overflow-y: auto;
-        max-height: 20vh;
-    }
-    
-    .submissao {
-        margin-top: 2%;
-        position: relative;
-    }
-    
-    .btnSubmeter {
-        -webkit-appearance: button;
-        -moz-appearance: button;
-        appearance: button;
-        text-decoration: none;
-        color: rgb(24, 52, 176, 0.85);
-        background-color: rgba(96, 116, 133, 0.85);
-        text-align: center;
-        font-family: "montserrat", sans-serif;
-        text-align: center;
-        text-transform: uppercase;
-        text-decoration: none;
-        position: relative;
-        display: inline-block;
-        width: 11%;
-        padding: 20px 25px;
-        margin-left: 42%;
-        margin-bottom: 0px;
-        transition: 0.5s;
-        overflow: hidden;
-    }
-    
-    .btnSubmeter:hover {
-        background: rgb(24, 52, 176, 0.85);
-        color: grey;
-        box-shadow: 0 0 5px rgb(24, 52, 176, 0.65), 0 0 25px rgb(24, 52, 176, 0.65), 0 0 40px rgb(24, 52, 176, 0.65), 0 0 70px rgb(24, 52, 176, 0.65);
-    }
-    
-    a span {
-        position: absolute;
-        display: block;
-    }
-    
-    a span:nth-child(1) {
-        top: 0;
+.login-box .form1 {
+    display: none;
+    text-align: center;
+}
+
+.headerHome .botoes {
+    display: block;
+    margin-left: 0%;
+}
+
+.headerHome .username {
+    margin-top: 4%;
+}
+
+.headerHome .password {
+    margin-top: 2%;
+}
+
+.w3-display-container {
+    position: relative;
+}
+
+.w3-content {
+    max-width: 980px
+}
+
+.w3-button:hover {
+    color: #000!important;
+    background-color: #ccc!important
+}
+
+.w3-black,
+.w3-hover-black:hover {
+    color: #fff!important;
+    background-color: #000!important
+}
+
+.w3-button {
+    border: none;
+    display: inline-block;
+    padding: 8px 16px;
+    vertical-align: middle;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    background-color: inherit;
+    text-align: center;
+    cursor: pointer;
+    white-space: nowrap
+}
+
+.w3-display-left {
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    transform: translate(0%, -50%);
+    -ms-transform: translate(-0%, -50%)
+}
+
+.w3-display-right {
+    position: absolute;
+    top: 50%;
+    right: 0%;
+    transform: translate(0%, -50%);
+    -ms-transform: translate(0%, -50%)
+}
+
+.btn {
+    background: grey;
+    color: rgb(24, 52, 176, 0.85);
+    width: 60%;
+    min-width: 67px;
+    border: 2px solid #000;
+    font-family: "montserrat", sans-serif;
+    text-transform: uppercase;
+    margin-top: 2%;
+    cursor: pointer;
+    transition: color 0.4s linear;
+    font-weight: bold;
+}
+
+.btn:hover {
+    color: grey;
+    background-color: #000;
+}
+
+body {
+    background-color: grey;
+}
+
+nav ul {
+    display: inline-block;
+    padding: 1%;
+    list-style: none;
+    background: rgb(24, 52, 176, 0.85);
+    border-width: 5px;
+    width: 88%;
+    margin-left: 5%;
+    margin-right: 1%;
+}
+
+nav li {
+    display: inline-block;
+    width: 30%;
+    position: relative;
+    text-align: center;
+    vertical-align: center;
+}
+
+nav a {
+    color: whitesmoke;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 14px;
+    display: block;
+}
+
+nav a:hover {
+    color: #F9FD0A;
+}
+
+nav a::before {
+    content: '';
+    display: block;
+    height: 5px;
+    background-color: #444;
+    margin-bottom: 1.5%;
+    width: 0%;
+    transition: all ease-in-out 400ms;
+}
+
+nav a:hover::before {
+    margin-left: 40%;
+    margin-right: 40%;
+    width: 20%;
+}
+
+.info-present {
+    display: flex;
+}
+
+.mapDiv {
+    text-align: center;
+    margin-left: 5%;
+    position: relative;
+}
+
+#map {
+    height: 60%;
+    min-height: 500px;
+    width: 70%;
+    position: relative;
+    margin-top: 0;
+    margin-left: 5%;
+}
+
+.azulejo-box {
+    margin-left: 0%;
+    margin-right: 5%;
+    width: 20%;
+    background: rgb(26, 38, 38, 0.5);
+    text-align: center;
+}
+
+.mySlides {
+    display: none;
+}
+
+#tabelAtual {
+    text-align: left;
+}
+
+#tabelAtual th {
+    text-align: start;
+}
+
+#tabelAtual td {
+    display: block;
+    overflow-y: auto;
+    max-height: 20vh;
+}
+
+.submissao {
+    margin-top: 2%;
+    position: relative;
+}
+
+.btnSubmeter {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    text-decoration: none;
+    color: rgb(24, 52, 176, 0.85);
+    background-color: rgba(96, 116, 133, 0.85);
+    text-align: center;
+    font-family: "montserrat", sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    width: 11%;
+    padding: 20px 25px;
+    margin-left: 42%;
+    margin-bottom: 0px;
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+.btnSubmeter:hover {
+    background: rgb(24, 52, 176, 0.85);
+    color: grey;
+    box-shadow: 0 0 5px rgb(24, 52, 176, 0.65), 0 0 25px rgb(24, 52, 176, 0.65), 0 0 40px rgb(24, 52, 176, 0.65), 0 0 70px rgb(24, 52, 176, 0.65);
+}
+
+a span {
+    position: absolute;
+    display: block;
+}
+
+a span:nth-child(1) {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgb(24, 52, 176, 0.85));
+    animation: animate1 1s linear infinite;
+}
+
+@keyframes animate1 {
+    0% {
         left: -100%;
-        width: 100%;
-        height: 2px;
-        background: linear-gradient(90deg, transparent, rgb(24, 52, 176, 0.85));
-        animation: animate1 1s linear infinite;
     }
-    
-    @keyframes animate1 {
-        0% {
-            left: -100%;
-        }
-        50%,
-        100% {
-            left: 100%;
-        }
+    50%,
+    100% {
+        left: 100%;
     }
-    
-    a span:nth-child(2) {
+}
+
+a span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, rgb(24, 52, 176, 0.85));
+    animation: animate2 1s linear infinite;
+    animation-delay: 0.25s;
+}
+
+@keyframes animate2 {
+    0% {
         top: -100%;
-        right: 0;
-        width: 2px;
-        height: 100%;
-        background: linear-gradient(180deg, transparent, rgb(24, 52, 176, 0.85));
-        animation: animate2 1s linear infinite;
-        animation-delay: 0.25s;
     }
-    
-    @keyframes animate2 {
-        0% {
-            top: -100%;
-        }
-        50%,
-        100% {
-            top: 100%;
-        }
+    50%,
+    100% {
+        top: 100%;
     }
-    
-    a span:nth-child(3) {
-        bottom: 0;
+}
+
+a span:nth-child(3) {
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, rgb(24, 52, 176, 0.85));
+    animation: animate3 1s linear infinite;
+    animation-delay: 0.5s;
+}
+
+@keyframes animate3 {
+    0% {
         right: -100%;
-        width: 100%;
-        height: 2px;
-        background: linear-gradient(270deg, transparent, rgb(24, 52, 176, 0.85));
-        animation: animate3 1s linear infinite;
-        animation-delay: 0.5s;
     }
-    
-    @keyframes animate3 {
-        0% {
-            right: -100%;
-        }
-        50%,
-        100% {
-            right: 100%;
-        }
+    50%,
+    100% {
+        right: 100%;
     }
-    
-    a span:nth-child(4) {
+}
+
+a span:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, rgb(24, 52, 176, 0.85));
+    animation: animate4 1s linear infinite;
+    animation-delay: 0.75s;
+}
+
+@keyframes animate4 {
+    0% {
         bottom: -100%;
-        left: 0;
-        width: 2px;
-        height: 100%;
-        background: linear-gradient(360deg, transparent, rgb(24, 52, 176, 0.85));
-        animation: animate4 1s linear infinite;
-        animation-delay: 0.75s;
     }
-    
-    @keyframes animate4 {
-        0% {
-            bottom: -100%;
-        }
-        50%,
-        100% {
-            bottom: 100%;
-        }
+    50%,
+    100% {
+        bottom: 100%;
     }
-    
-    .sobre {
-        display: flex;
-        margin-top: 0;
-        margin-right: 5%;
-        width: 100%;
-    }
-    
-    .mapDiv2 {
-        margin: auto;
-    }
-    
-    #map2 {
-        height: 60%;
-        min-height: 450px;
-        width: 56%;
-        position: absolute;
-        margin-left: 38%;
-    }
-    
-    .azulejo-wrapper {
-        display: inline-block;
-        margin-left: 5.5%;
-        width: 33%;
-    }
-    
-    .search_box {
-        position: relative;
-        margin-left: 9%;
-    }
-    
-    .input_box {
-        width: 80%;
-        text-align: center;
-        border-radius: 10px;
-    }
-    
-    .lista-azulejo {
-        margin-top: 2%;
-        background-color: grey;
-        position: relative;
-        display: block;
-        width: 100%;
-        height: 56.5vh;
-        min-height: 420px;
-        overflow-y: auto;
-    }
-    
-    .botao {
-        width: 100%;
-        min-width: 230px;
-        display: block;
-        height: 40px;
-        color: #000;
-        background-color: rgb(24, 52, 176, 0.65);
-        font-size: 12px;
-        cursor: pointer;
-    }
-    
-    .inputs {
-        display: flex;
-    }
-    
-    .tabelaInput {
-        text-align: left;
-        margin-left: 5%;
-        width: 40%;
-    }
-    
-    .tabelaInput .tr .th {
-        width: 150px;
-    }
-    
-    .inputs input {
-        height: 30%;
-        background-color: lightgrey;
-        font-size: 12px;
-        width: 100%;
-        min-height: 20px;
-    }
-    
-    #inputDesc {
-        padding-bottom: 15vh;
-    }
-    
-    .imagemInput {
-        margin-left: 1%;
-        margin-right: 5%;
-        display: block;
-    }
-    
-    #btnEscolherImagem {
-        font-family: Arial, Helvetica, sans-serif;
-        font-weight: bolder;
-    }
-    
-    #blah {
-        object-fit: cover;
-        height: 30vh;
-        width: 45vh;
-        max-height: 200px;
-        max-width: 650px;
-        overflow: hidden;
-    }
-    
-    .mapSubmeter {
-        margin: auto;
-    }
-    
-    #mapSubmeter {
-        min-height: 200px;
-        min-width: 420px;
-        width: 40%;
-        margin-right: 40%;
-        height: 5%;
-        position: relative;
-    }
-    
-    .mapSubmeter .leaflet-control-container .leaflet-control-zoom {
-        display: none;
-    }
-    
-    .btnInserirAzulejo {
-        width: 8%;
-        margin-top: 20vh;
-        margin-left: 46%;
-        padding: 3px 6px;
-        border-radius: 6px;
-        border: 2px solid #000;
-    }
+}
+
+.sobre {
+    display: flex;
+    margin-top: 0;
+    margin-right: 5%;
+    width: 100%;
+}
+
+.mapDiv2 {
+    margin: auto;
+}
+
+#map2 {
+    height: 60%;
+    min-height: 450px;
+    width: 56%;
+    position: absolute;
+    margin-left: 38%;
+}
+
+.azulejo-wrapper {
+    display: inline-block;
+    margin-left: 5.5%;
+    width: 33%;
+}
+
+.search_box {
+    position: relative;
+    margin-left: 9%;
+}
+
+.input_box {
+    width: 80%;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.lista-azulejo {
+    margin-top: 2%;
+    background-color: grey;
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 56.5vh;
+    min-height: 420px;
+    overflow-y: auto;
+}
+
+.botao {
+    width: 100%;
+    min-width: 230px;
+    display: block;
+    height: 40px;
+    color: #000;
+    background-color: rgb(24, 52, 176, 0.65);
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.inputs {
+    display: flex;
+}
+
+.tabelaInput {
+    text-align: left;
+    margin-left: 5%;
+    width: 40%;
+}
+
+.tabelaInput .tr .th {
+    width: 150px;
+}
+
+.inputs input {
+    height: 30%;
+    background-color: lightgrey;
+    font-size: 12px;
+    width: 100%;
+    min-height: 20px;
+}
+
+#inputDesc {
+    padding-bottom: 15vh;
+}
+
+.imagemInput {
+    margin-left: 1%;
+    margin-right: 5%;
+    display: block;
+}
+
+#btnEscolherImagem {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+}
+
+#blah {
+    object-fit: cover;
+    height: 30vh;
+    width: 45vh;
+    max-height: 200px;
+    max-width: 650px;
+    overflow: hidden;
+}
+
+.mapSubmeter {
+    margin: auto;
+}
+
+#mapSubmeter {
+    min-height: 200px;
+    min-width: 420px;
+    width: 40%;
+    margin-right: 40%;
+    height: 5%;
+    position: relative;
+}
+
+.mapSubmeter .leaflet-control-container .leaflet-control-zoom {
+    display: none;
+}
+
+.btnInserirAzulejo {
+    width: 8%;
+    margin-top: 20vh;
+    margin-left: 46%;
+    padding: 3px 6px;
+    border-radius: 6px;
+    border: 2px solid #000;
+}

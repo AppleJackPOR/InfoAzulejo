@@ -1,8 +1,6 @@
 # InfoAzulejo
 Projeto elaborado por: Hugo Varela
 
-Link: https://infoazulejo.herokuapp.com/
-
 ## Enquadramento:
 Os azulejos são muitas vezes associados à cobertura de superfícies, pelo que está relacionado a arquitetura em muitos casos. Em Portugal a sua utilização foi elevada, sendo uma referência não apenas histórica, como artística também. Por estes motivos, há uma necessidade de apoiar na partilha de património, não só aos portugueses, como a estrangeiros numa plataforma *web*, sendo o objetivo principal deste projeto ajudar na recolha e tratamento de informação sobre azulejos incluindo imagens, anotações e localizações.
 
