@@ -197,6 +197,8 @@ nav a:hover::before {
     display: none;
 }
 
+
+
 #tabelAtual {
     text-align: left;
 }
@@ -376,15 +378,36 @@ a span:nth-child(4) {
 }
 
 .botao {
-    width: 100%;
+    width: 70%;
     min-width: 230px;
-    display: block;
     height: 40px;
     color: #000;
     background-color: rgb(24, 52, 176, 0.65);
     font-size: 12px;
-    cursor: pointer;
+    cursor: pointer;   
+
 }
+
+
+.botao1 {
+    width: 99%;
+    min-width: 230px;
+    height: 40px;
+    color: #000;
+    background-color: rgb(24, 52, 176, 0.65);
+    font-size: 12px;
+    cursor: pointer;   
+
+}
+
+#Abrir
+{
+    width:20%;
+    min-width:180px;
+    background-color:#B2AAAA;
+
+}
+
 
 .inputs {
     display: flex;
@@ -410,9 +433,16 @@ a span:nth-child(4) {
 
 #inputDesc {
     padding-bottom: 15vh;
+    height: 30%;
+    background-color: lightgrey;
+    font-size: 12px;
+    width: 100%;
+    min-height: 20px;
+    resize:none;
 }
 
 .imagemInput {
+  
     margin-left: 1%;
     margin-right: 5%;
     display: block;
@@ -452,8 +482,12 @@ a span:nth-child(4) {
 .btnInserirAzulejo {
     width: 8%;
     margin-top: 20vh;
-    margin-left: 46%;
     padding: 3px 6px;
     border-radius: 6px;
     border: 2px solid #000;
+}
+
+#btnInserirAzulejo
+{
+    margin-left:40%;
 }

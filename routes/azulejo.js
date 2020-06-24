@@ -24,6 +24,17 @@ router.get('/azulejo', function(req, res, next) {
     }, next)
 });
 
+router.get('/like/:id', function(req, res, next) {
+    infoAzulejoDAO.getAzulejoLike(req.params.id,function(err, result) {
+        if (err) {
+            res.statusMessage = result.status;
+            res.status(result.code).json(err);
+            return;
+        }
+        res.status(result.code).send(result.data);
+    }, next)
+});
+
 router.get('/azulejoDist', function(req, res, next) {
     infoAzulejoDAO.getAzulejoDist(function(err, result) {
         if (err) {
@@ -47,6 +58,19 @@ router.get("/:id", function(req, res, next) {
         }
         res.status(result.code).send(result.data);
     }, next)
+});
+
+router.post("/avaliar", function(req, res, next) {
+    console.log("boas");
+    infoAzulejoDAO.updateAzulejo(req.body, function(err, result) {
+        if (err) {
+            res.statusMessage = result.status;
+            res.status(result.code).json(err);
+            return;
+        }
+        res.status(result.code).send(result.data);
+    }, next)
+
 });
 
 module.exports = router;

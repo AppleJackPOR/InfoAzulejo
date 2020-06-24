@@ -39,7 +39,7 @@ $(window).on('load', function() {
         for (var i = data.results.length - 1; i >= 0; i--) {
             lat = data.results[i].latlng.lat;
             lon = data.results[i].latlng.lng;
-            theMarker = L.marker([lat, lon]).addTo(map);
+            theMarker = L.marker([wlat, lon]).addTo(map);
         }
         document.getElementById("moradaAzulejo").value = data.results[0].text;
     });
@@ -173,6 +173,7 @@ function validate() {
             var html = "<p>" + sessionStorage.getItem("utilizador") + "</p>";
             document.getElementById("dados").innerHTML += html;
             document.getElementById("password").value = "";
+            location.reload();
         },
         error: function() {
             document.getElementById("password").value = "";
@@ -188,6 +189,7 @@ function validate() {
 }
 
 
+
 function logout() {
     var inicial = document.getElementById("form");
     var logged = document.getElementById("form1");
@@ -195,4 +197,7 @@ function logout() {
     logged.style.display = "none";
     document.getElementById("dados").innerHTML = "";
     sessionStorage.removeItem("utilizador");
+    sessionStorage.removeItem("admin");
+    location.reload();
+
 }

@@ -98,17 +98,26 @@ function markerClick() {
                 console.log(JSON.stringify(res));
                 return;
             }
+            if(res.nrImages==0)
+            {
+                document.getElementById("slideshow").innerHTML ="";
+            }
+           if(res.nrImages!=0)
+           {
             for (var i = 0; i < res.nrImages; i++) {
                 var html = '<img class="mySlides" src="https://azulejos.b-cdn.net/' + res._id + '/' + i + '.jpg" style="width:100%">'
                 document.getElementById("slideshow").innerHTML += html;
             }
+        
             document.getElementById("slideshow").innerHTML += '<button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>'
             document.getElementById("slideshow").innerHTML += '<button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>'
             showDivs(slideIndex);
+        }
             document.getElementById("nome").innerHTML = res.Nome;
             document.getElementById("ano").innerHTML = res.Ano;
             document.getElementById("condicao").innerHTML = res.Condicao.toLowerCase();
             document.getElementById("info").innerHTML = res.Info;
+
         }
 
     });
@@ -131,7 +140,8 @@ function validate() {
             password: password,
         }),
         success: function(res, status) {
-            console.log(username);
+            console.log(res);
+            sessionStorage.setItem("admin",res[0].userType);
             sessionStorage.setItem('utilizador', username);
             console.log(sessionStorage.getItem('utilizador'));
             var inicial = document.getElementById("form");
@@ -141,6 +151,7 @@ function validate() {
             var html = "<p>" + sessionStorage.getItem("utilizador") + "</p>";
             document.getElementById("dados").innerHTML += html;
             document.getElementById("password").value = "";
+            location.reload();
         },
         error: function() {
             document.getElementById("password").value = "";
@@ -163,4 +174,7 @@ function logout() {
     logged.style.display = "none";
     document.getElementById("dados").innerHTML = "";
     sessionStorage.removeItem("utilizador");
+    sessionStorage.removeItem("admin");
+    location.reload();
+
 }

@@ -40,6 +40,7 @@ module.exports.validarUser = function(utilizador, callback, next) {
             if (err)
                 throw err;
             collection.find(obj).toArray(function(err, results) {
+                console.log(results);
                 if (results.length == 0) {
                     callback(err, { code: 500, status: "Error in a database query" })
                     return;
@@ -59,6 +60,22 @@ module.exports.getAzulejo = function(callback, next) {
             if (err)
                 throw err;
             collection.find().toArray(function(err, results) {
+                callback(false, { code: 200, status: "ok", data: results })
+            });
+        })
+    })
+}
+
+module.exports.getAzulejoLike = function(val,callback, next) {
+    MongoClient.connect(url, function(err, client) {
+        if (err)
+            throw err;
+        var dbA = client.db('app_azulejos');
+        dbA.collection('azulejos_info', function(err, collection) {
+            if (err)
+                throw err;
+            collection.find({Nome:new RegExp(val, 'i')}).toArray(function(err, results) {
+                console.log(results);
                 callback(false, { code: 200, status: "ok", data: results })
             });
         })
@@ -138,6 +155,7 @@ module.exports.getUser = function(callback, next) {
             if (err)
                 throw err;
             collection.find().toArray(function(err, results) {
+                console.log(results);
                 callback(false, { code: 200, status: "ok", data: results })
 
             });
@@ -224,6 +242,25 @@ module.exports.inserirImagem = function(callback, next) {
                 });
             }
             res.send('done');
+        })
+    })
+}
+
+
+module.exports.updateAzulejo = function(azulejo, callback, next) {
+    console.log(azulejo);
+    MongoClient.connect(url, function(err, client) {
+        if (err)
+            throw err;
+        var dbA = client.db('app_azulejos');
+        dbA.collection('azulejos_info', function(err, collection) {
+            if (err)
+                throw err;
+            collection.update({ _id: new ObjectId(azulejo.id)},{$set:{Nome:azulejo.nome,Ano:azulejo.ano,Info:azulejo.descricao,Condicao:azulejo.condicao,Estado:azulejo.estado}}, (function(err, results) {
+                console.log(results);
+                callback(false, { code: 200, status: "ok", data: results })
+
+            }));
         })
     })
 }

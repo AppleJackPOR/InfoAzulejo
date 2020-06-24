@@ -19,6 +19,9 @@ router.get('/submeter', function(req, res, next) {
     res.render('submeter', { title: 'InfoAzulejo' });
 });
 
+router.get('/avaliar', function(req, res, next) {
+    res.render('avaliar', { title: 'InfoAzulejo' });
+});
 
 
 module.exports = router;
