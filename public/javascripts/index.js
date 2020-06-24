@@ -104,6 +104,7 @@ function markerClick() {
             }
            if(res.nrImages!=0)
            {
+			document.getElementById("slideshow").innerHTML ="";
             for (var i = 0; i < res.nrImages; i++) {
                 var html = '<img class="mySlides" src="https://azulejos.b-cdn.net/' + res._id + '/' + i + '.jpg" style="width:100%">'
                 document.getElementById("slideshow").innerHTML += html;
