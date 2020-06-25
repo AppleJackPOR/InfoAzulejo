@@ -1,4 +1,13 @@
 $(window).on('load', function() {
+	if (sessionStorage.getItem("utilizador") != null) {
+        var inicial = document.getElementById("form");
+        var logged = document.getElementById("form1");
+        inicial.style.display = "none";
+        logged.style.display = "block";
+        var html = "<p>" + sessionStorage.getItem("utilizador") + "</p>";
+        document.getElementById("dados").innerHTML += html;
+    }
+	
     var geocodeService = L.esri.Geocoding.geocodeService();
     $.ajax({
         url: "api/azulejo/" + sessionStorage.getItem("AzulejoEscolhido"),
