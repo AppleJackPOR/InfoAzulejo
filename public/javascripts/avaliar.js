@@ -63,6 +63,8 @@ function showDivs(n) {
     }
     x[slideIndex - 1].style.display = "block";
     x[slideIndex - 1].style.height = "220px";
+	x[slideIndex - 1].style.objectFit = "cover";
+
 }
 
 
