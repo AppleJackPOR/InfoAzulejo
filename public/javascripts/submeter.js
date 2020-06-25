@@ -1,5 +1,10 @@
 $(window).on('load', function() {
 
+    var body = {
+        "sessao": {},
+        "azulejos": []
+    }
+
     if (sessionStorage.getItem("utilizador") != null) {
         var inicial = document.getElementById("form");
         var logged = document.getElementById("form1");
@@ -27,7 +32,8 @@ $(window).on('load', function() {
         }).addTo(map)
         .bindPopup('Está aqui');
 
-    var theMarker = {};
+    var theMarker;
+    var imagem;
 
 
     searchControl.on('results', function(data) {
@@ -61,7 +67,7 @@ $(window).on('load', function() {
 
     });
 
-*/
+ */
 
     map.on('click', function(e) {
         geocodeService.reverse().latlng(e.latlng).run(function(error, result) {
@@ -71,7 +77,10 @@ $(window).on('load', function() {
             if (theMarker != undefined) {
                 map.removeLayer(theMarker);
             };
-            theMarker = L.marker(result.latlng).addTo(map);
+            theMarker = L.marker(result.latlng);
+            theMarker.addTo(map);
+            marker = theMarker._latlng;
+            console.log(theMarker._latlng);
             console.log(result.address.Match_addr);
             document.getElementById("moradaAzulejo").value = result.address.Match_addr;
         });
@@ -101,103 +110,156 @@ $(window).on('load', function() {
         }
     })
 
-});
+    $("#submeter").click(function() {
+        submeterAzulejo();
+    });
 
-function verImagem(event) {
 
-    var reader = new FileReader();
-    reader.onload = function() {
-        var imagem = document.getElementById("blah");
-        imagem.src = reader.result;
+
+    function verImagem(event) {
+
+        var reader = new FileReader();
+        reader.onload = function() {
+            var imagem = document.getElementById("blah");
+            imagem.src = reader.result;
+        }
+
+        reader.readAsDataURL(event.target.files[0]);
+
     }
 
-    reader.readAsDataURL(event.target.files[0]);
+    function getPosition(position) {
+        sessionStorage.setItem("lat", position.coords.latitude);
+        sessionStorage.setItem("long", position.coords.longitude);
+    }
 
-}
 
-function getPosition(position) {
-    sessionStorage.setItem("lat", position.coords.latitude);
-    sessionStorage.setItem("long", position.coords.longitude);
-}
 
-function submeterAzulejo() {
-    var nome = document.getElementById("nomeAzulejo").value;
-    var moradaAzulejo = document.getElementById("moradaAzulejo").value;
-    /* var condicao = document.getElementById("condicao").value;  mudar esta linha*/
-    var anoAzulejo = document.getElementById("anoAzulejo").value;
-    var inputDesc = document.getElementById("inputDesc").value;
+    function submeterAzulejo() {
 
-    $.ajax({
-        url: "/api/submeter/inserirAzulejo",
-        method: "post",
-        contentType: "application/json",
-        data: JSON.stringify({
-            nome: nome,
-            moradaAzulejo: moradaAzulejo,
-            anoAzulejo: anoAzulejo,
-            inputDesc: inputDesc
-        }),
-        success: function(res, status) {
-            window.location.href = '/';
+        var ObjectId = (m = Math, d = Date, h = 16, s = s => m.floor(s).toString(h)) =>
+            s(d.now() / 1000) + ' '.repeat(h).replace(/./g, () => s(m.random() * h));
+
+        var sessionID = ObjectId();
+        var azulejoID = ObjectId();
+
+        var sessao = {
+            "id": sessionID,
+            "name": document.getElementById("nomeAzulejo").value,
+            "date": "",
+            "state": "SUBMETIDA",
+            "idAutor": "teste",
+            "tiles": [{
+                "_id": azulejoID,
+                "Nome": document.getElementById("nomeAzulejo").value
+            }]
         }
 
-        ,
-        error: function() { alert(JSON.stringify('error')); }
+        var azulejo = {
+            "id": azulejoID,
+            "name": document.getElementById("nomeAzulejo").value,
+            "info": document.getElementById("inputDesc").value,
+            "year": document.getElementById("anoAzulejo").value,
+            "condition": document.getElementById("condicao").value,
+            "location": [
+                theMarker._latlng.lng,
+                theMarker._latlng.lat
+            ],
+            "session": sessionID,
+            "nrImages": [imagem]
+        }
 
-    });
+        body.sessao = sessao;
+        body.azulejos.push(azulejo)
 
-};
+        console.log(body);
 
-var tentativas = 3;
-
-function validate() {
-    console.log("carregaste");
-    var username = document.getElementById("username").value;
-    var password = document.getElementById("password").value;
-    $.ajax({
-        url: "/api/user/login",
-        method: "post",
-        contentType: "application/json",
-        data: JSON.stringify({
-            nome: username,
-            password: password,
-        }),
-        success: function(res, status) {
-            console.log(username);
-            sessionStorage.setItem('utilizador', username);
-            console.log(sessionStorage.getItem('utilizador'));
-            var inicial = document.getElementById("form");
-            var logged = document.getElementById("form1");
-            inicial.style.display = "none";
-            logged.style.display = "block";
-            var html = "<p>" + sessionStorage.getItem("utilizador") + "</p>";
-            document.getElementById("dados").innerHTML += html;
-            document.getElementById("password").value = "";
-            location.reload();
-        },
-        error: function() {
-            document.getElementById("password").value = "";
-            tentativas--;
-            alert("Dados errados, tem " + tentativas + " tentativas");
-            if (tentativas == 0) {
-                alert("Número limite de tentativas atingido")
-                document.getElementById("entrar").disabled = true;
+        $.ajax({
+            url: "/api/submeter/inserirAzulejo",
+            method: "post",
+            contentType: "application/json",
+            data: JSON.stringify(
+                body
+            ),
+            success: function(res, status) {
+                window.location.href = '/';
             }
+
+            ,
+            error: function() { alert(JSON.stringify('error')); }
+
+        });
+
+    };
+
+    var tentativas = 3;
+
+    function validate() {
+        console.log("carregaste");
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+        $.ajax({
+            url: "/api/user/login",
+            method: "post",
+            contentType: "application/json",
+            data: JSON.stringify({
+                nome: username,
+                password: password,
+            }),
+            success: function(res, status) {
+                console.log(username);
+                sessionStorage.setItem('utilizador', username);
+                console.log(sessionStorage.getItem('utilizador'));
+                var inicial = document.getElementById("form");
+                var logged = document.getElementById("form1");
+                inicial.style.display = "none";
+                logged.style.display = "block";
+                var html = "<p>" + sessionStorage.getItem("utilizador") + "</p>";
+                document.getElementById("dados").innerHTML += html;
+                document.getElementById("password").value = "";
+                location.reload();
+            },
+            error: function() {
+                document.getElementById("password").value = "";
+                tentativas--;
+                alert("Dados errados, tem " + tentativas + " tentativas");
+                if (tentativas == 0) {
+                    alert("Número limite de tentativas atingido")
+                    document.getElementById("entrar").disabled = true;
+                }
+            }
+        });
+
+    }
+
+    function readFile() {
+
+        if (this.files && this.files[0]) {
+
+            var FR = new FileReader();
+
+            FR.addEventListener("load", function(e) {
+                document.getElementById("blah").src = e.target.result;
+                imagem = e.target.result;
+            });
+
+            FR.readAsDataURL(this.files[0]);
         }
-    });
 
-}
+    }
 
+    document.getElementById("btnEscolherImagem").addEventListener("change", readFile);
 
+    function logout() {
+        var inicial = document.getElementById("form");
+        var logged = document.getElementById("form1");
+        inicial.style.display = "block";
+        logged.style.display = "none";
+        document.getElementById("dados").innerHTML = "";
+        sessionStorage.removeItem("utilizador");
+        sessionStorage.removeItem("admin");
+        location.reload();
 
-function logout() {
-    var inicial = document.getElementById("form");
-    var logged = document.getElementById("form1");
-    inicial.style.display = "block";
-    logged.style.display = "none";
-    document.getElementById("dados").innerHTML = "";
-    sessionStorage.removeItem("utilizador");
-    sessionStorage.removeItem("admin");
-    location.reload();
+    }
 
-}
+});

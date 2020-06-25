@@ -66,7 +66,7 @@ module.exports.getAzulejo = function(callback, next) {
     })
 }
 
-module.exports.getAzulejoLike = function(val,callback, next) {
+module.exports.getAzulejoLike = function(val, callback, next) {
     MongoClient.connect(url, function(err, client) {
         if (err)
             throw err;
@@ -74,7 +74,7 @@ module.exports.getAzulejoLike = function(val,callback, next) {
         dbA.collection('azulejos_info', function(err, collection) {
             if (err)
                 throw err;
-            collection.find({Nome:new RegExp(val, 'i')}).toArray(function(err, results) {
+            collection.find({ Nome: new RegExp(val, 'i') }).toArray(function(err, results) {
                 console.log(results);
                 callback(false, { code: 200, status: "ok", data: results })
             });
@@ -147,48 +147,49 @@ module.exports.getCondicao = function(callback, next) {
 }
 
 module.exports.getUser = function(callback, next) {
-    MongoClient.connect(url, function(err, client) {
-        if (err)
-            throw err;
-        var dbA = client.db('app_azulejos');
-        dbA.collection('azulejos_user', function(err, collection) {
+        MongoClient.connect(url, function(err, client) {
             if (err)
                 throw err;
-            collection.find().toArray(function(err, results) {
-                console.log(results);
-                callback(false, { code: 200, status: "ok", data: results })
+            var dbA = client.db('app_azulejos');
+            dbA.collection('azulejos_user', function(err, collection) {
+                if (err)
+                    throw err;
+                collection.find().toArray(function(err, results) {
+                    console.log(results);
+                    callback(false, { code: 200, status: "ok", data: results })
 
-            });
+                });
+            })
         })
-    })
-}
-
-module.exports.inserirAzulejo = function(azulejo, callback, next) {
-    MongoClient.connect(url, function(err, client) {
-        if (err)
-            throw err;
-        var dbA = client.db('app_azulejos');
-        var obj = {
-            Nome: azulejo.Nome,
-            Ano: azulejo.Ano,
-            Info: azulejo.Info,
-            Condicao: azulejo.Condicao,
-            Localizacao: { coordinates: { 0: azulejo.lat, 1: azulejo.long } }
-        };
-        dbA.collection('azulejos_info', function(err, collection) {
+    }
+    /*
+    module.exports.inserirAzulejo = function(azulejo, callback, next) {
+        MongoClient.connect(url, function(err, client) {
             if (err)
                 throw err;
-            collection.insertOne({
-                obj,
-                function(err, res) {
-                    if (err) throw err;
-                    console.log("Objeto inserido: " + obj);
-                    dbA.close();
-                }
+            var dbA = client.db('app_azulejos');
+            var obj = {
+                Nome: azulejo.Nome,
+                Ano: azulejo.Ano,
+                Info: azulejo.Info,
+                Condicao: azulejo.Condicao,
+                Localizacao: { coordinates: { 0: azulejo.lat, 1: azulejo.long } }
+            };
+            dbA.collection('azulejos_info', function(err, collection) {
+                if (err)
+                    throw err;
+                collection.insertOne({
+                    obj,
+                    function(err, res) {
+                        if (err) throw err;
+                        console.log("Objeto inserido: " + obj);
+                        dbA.close();
+                    }
+                });
             });
         });
-    });
-}
+    }
+    */
 
 module.exports.getSessao = function(callback, next) {
     MongoClient.connect(url, function(err, client) {
@@ -256,11 +257,60 @@ module.exports.updateAzulejo = function(azulejo, callback, next) {
         dbA.collection('azulejos_info', function(err, collection) {
             if (err)
                 throw err;
-            collection.update({ _id: new ObjectId(azulejo.id)},{$set:{Nome:azulejo.nome,Ano:azulejo.ano,Info:azulejo.descricao,Condicao:azulejo.condicao,Estado:azulejo.estado}}, (function(err, results) {
+            collection.update({ _id: new ObjectId(azulejo.id) }, { $set: { Nome: azulejo.nome, Ano: azulejo.ano, Info: azulejo.descricao, Condicao: azulejo.condicao, Estado: azulejo.estado } }, (function(err, results) {
                 console.log(results);
                 callback(false, { code: 200, status: "ok", data: results })
 
             }));
         })
+    })
+}
+
+module.exports.inserirAzulejo = function(azulejo, callback, next) {
+    console.log("bombadinho");
+    var sessionID = new ObjectId(req.body.sessao.id);
+    var userID = new ObjectId(req.body.sessao.idAutor);
+    MongoClient.connect(url, function(err, client) {
+        if (err)
+            throw err;
+        var dbA = client.db('app_azulejos');
+        console.log("estou quase");
+        dbA.collection("azulejos_sessoes").insertOne({
+            "_id": sessionID,
+            "data": new Date().toISOString(),
+            "estado": azulejo.sessao.state,
+            "info": azulejo.sessao.name,
+            "idAutor": userID,
+            "azulejos": azulejo.sessao.tiles
+        }, function(findErr, doc) {
+            console.log("estou mais perto")
+            if (findErr)
+                throw findErr;
+            var documents = [];
+            for (var i in azulejo.azulejos) {
+                var azulejo = azulejo.azulejos[i];
+                var document = {
+                    "_id": new ObjectId(azulejo.id),
+                    "Nome": azulejo.name,
+                    "Ano": azulejo.year,
+                    "Info": azulejo.info,
+                    "Condicao": azulejo.condition,
+                    "Sessao": sessionID,
+                    "Localizacao": {
+                        "type": "Point",
+                        "coordinates": azulejo.location
+                    }
+                }
+                documents.push(document);
+            }
+            db.collection("azulejos_info").insertMany(documents, function(findErr, doc) {
+                console.log("obviamente que não cheguei até aqui");
+                if (findErr)
+                    throw findErr;
+                console.log(doc)
+                client.close();
+            });
+        })
+        res.status(200).json({ content: 'done' });
     })
 }
