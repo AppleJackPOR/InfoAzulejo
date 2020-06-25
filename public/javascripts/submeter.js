@@ -33,7 +33,7 @@ $(window).on('load', function() {
         .bindPopup('Está aqui');
 
     var theMarker;
-    var imagem;
+    var imageInBase64;
 
 
     searchControl.on('results', function(data) {
@@ -120,10 +120,11 @@ $(window).on('load', function() {
 
         var reader = new FileReader();
         reader.onload = function() {
-            var imagem = document.getElementById("blah");
-            imagem.src = reader.result;
-        }
+                var imagem = document.getElementById("blah");
+                imagem.src = reader.result;
 
+            }
+            //reader.result.split(',')[1];
         reader.readAsDataURL(event.target.files[0]);
 
     }
@@ -148,7 +149,7 @@ $(window).on('load', function() {
             "name": document.getElementById("nomeAzulejo").value,
             "date": "",
             "state": "SUBMETIDA",
-            "idAutor": "teste",
+            "idAutor": sessionStorage.getItem('id'),
             "tiles": [{
                 "_id": azulejoID,
                 "Nome": document.getElementById("nomeAzulejo").value
@@ -166,7 +167,7 @@ $(window).on('load', function() {
                 theMarker._latlng.lat
             ],
             "session": sessionID,
-            "nrImages": [imagem]
+            "nrImages": [imagem.split(',')[1]]
         }
 
         body.sessao = sessao;
@@ -192,45 +193,6 @@ $(window).on('load', function() {
 
     };
 
-    var tentativas = 3;
-
-    function validate() {
-        console.log("carregaste");
-        var username = document.getElementById("username").value;
-        var password = document.getElementById("password").value;
-        $.ajax({
-            url: "/api/user/login",
-            method: "post",
-            contentType: "application/json",
-            data: JSON.stringify({
-                nome: username,
-                password: password,
-            }),
-            success: function(res, status) {
-                console.log(username);
-                sessionStorage.setItem('utilizador', username);
-                console.log(sessionStorage.getItem('utilizador'));
-                var inicial = document.getElementById("form");
-                var logged = document.getElementById("form1");
-                inicial.style.display = "none";
-                logged.style.display = "block";
-                var html = "<p>" + sessionStorage.getItem("utilizador") + "</p>";
-                document.getElementById("dados").innerHTML += html;
-                document.getElementById("password").value = "";
-                location.reload();
-            },
-            error: function() {
-                document.getElementById("password").value = "";
-                tentativas--;
-                alert("Dados errados, tem " + tentativas + " tentativas");
-                if (tentativas == 0) {
-                    alert("Número limite de tentativas atingido")
-                    document.getElementById("entrar").disabled = true;
-                }
-            }
-        });
-
-    }
 
     function readFile() {
 
@@ -250,16 +212,60 @@ $(window).on('load', function() {
 
     document.getElementById("btnEscolherImagem").addEventListener("change", readFile);
 
-    function logout() {
-        var inicial = document.getElementById("form");
-        var logged = document.getElementById("form1");
-        inicial.style.display = "block";
-        logged.style.display = "none";
-        document.getElementById("dados").innerHTML = "";
-        sessionStorage.removeItem("utilizador");
-        sessionStorage.removeItem("admin");
-        location.reload();
 
-    }
 
 });
+
+var tentativas = 3;
+
+function validate() {
+    console.log("carregaste");
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+    $.ajax({
+        url: "/api/user/login",
+        method: "post",
+        contentType: "application/json",
+        data: JSON.stringify({
+            nome: username,
+            password: password,
+        }),
+        success: function(res, status) {
+            console.log(res)
+            console.log(username);
+            sessionStorage.setItem('utilizador', username);
+            sessionStorage.setItem('id', res[0]._id);
+            console.log(sessionStorage.getItem('utilizador'));
+            var inicial = document.getElementById("form");
+            var logged = document.getElementById("form1");
+            inicial.style.display = "none";
+            logged.style.display = "block";
+            var html = "<p>" + sessionStorage.getItem("utilizador") + "</p>";
+            document.getElementById("dados").innerHTML += html;
+            document.getElementById("password").value = "";
+            //location.reload();
+        },
+        error: function() {
+            document.getElementById("password").value = "";
+            tentativas--;
+            alert("Dados errados, tem " + tentativas + " tentativas");
+            if (tentativas == 0) {
+                alert("Número limite de tentativas atingido")
+                document.getElementById("entrar").disabled = true;
+            }
+        }
+    });
+
+}
+
+function logout() {
+    var inicial = document.getElementById("form");
+    var logged = document.getElementById("form1");
+    inicial.style.display = "block";
+    logged.style.display = "none";
+    document.getElementById("dados").innerHTML = "";
+    sessionStorage.removeItem("utilizador");
+    sessionStorage.removeItem("admin");
+    location.reload();
+
+}

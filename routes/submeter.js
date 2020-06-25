@@ -1,7 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var infoAzulejoDAO = require("../models/infoAzulejoDAO");
-
+var fs = require('fs');
+const https = require('https');
 
 
 router.get('/', function(req, res, next) {
@@ -53,12 +54,16 @@ function uploadPhotos(azulejos) {
     for (const j in azulejos) {
         var filePathArray = [];
         for (var i in azulejos[j].nrImages) {
-            console.log(azulejos[j].id);
+            console.log(azulejos[j].nrImages[i])
             const imageBuffer = new Buffer(azulejos[j].nrImages[i], "base64");
-            console.log(azulejos[j].id)
             const filePath = "./temporary_uploads/" + azulejos[j].id + "-" + i + ".jpg";
             filePathArray.push(filePath);
-            fs.writeFileSync(filePath, imageBuffer);
+            console.log(filePathArray);
+            try {
+                fs.writeFileSync(filePath, imageBuffer);
+            } catch (err) {
+                console.log(err);
+            }
         }
         for (const i in filePathArray) {
             console.log(filePathArray[i])
@@ -66,14 +71,16 @@ function uploadPhotos(azulejos) {
             fs.readFile(filePathArray[i], function(err, data) {
                 if (err)
                     throw err;
+                console.log(azulejos[j].id)
                 var options = {
                     'method': 'PUT',
                     'hostname': 'storage.bunnycdn.com',
-                    'path': '/azulejos/' + azulejos[j].id + '/' + i + '.jpg?AccessKey= 81883e8b-c3e8-49c9-bec23323819a-4f45-4990',
+                    'path': '/azulejos/' + azulejos[j].id + '/' + i + '.jpg?AccessKey=81883e8b-c3e8-49c9-bec23323819a-4f45-4990',
                     'headers': {
                         'Content-Type': 'image/jpeg'
                     }
                 };
+                console.log(options.path)
                 var reqBunny = https.request(options, function(resBunny) {
                     var chunks = [];
 
