@@ -258,6 +258,7 @@ function validate() {
 
 }
 
+//fazer logout
 function logout() {
     var inicial = document.getElementById("form");
     var logged = document.getElementById("form1");
@@ -267,5 +268,6 @@ function logout() {
     sessionStorage.removeItem("utilizador");
     sessionStorage.removeItem("admin");
     location.reload();
+
 
 }
