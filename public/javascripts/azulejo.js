@@ -237,7 +237,7 @@ function validate() {
             var logged = document.getElementById("form1");
             inicial.style.display = "none";
             logged.style.display = "block";
-            var html = "<p id='labelUsername'>" + sessionStorage.getItem("utilizador") + "</p>";
+            var html = "<p>" + sessionStorage.getItem("utilizador") + "</p>";
             document.getElementById("dados").innerHTML += html;
             document.getElementById("password").value = "";
             location.reload();
@@ -278,7 +278,7 @@ else
             var logged = document.getElementById("form1");
             inicial.style.display = "none";
             logged.style.display = "block";
-            var html = "<p>" + sessionStorage.getItem("utilizador") + "</p>";
+            var html = "<p id='labelUsername'>" + sessionStorage.getItem("utilizador") + "</p>";
             document.getElementById("dados").innerHTML += html;
         }
     
@@ -448,7 +448,7 @@ else
                 var logged = document.getElementById("form1");
                 inicial.style.display = "none";
                 logged.style.display = "block";
-                var html = "<p>" + sessionStorage.getItem("utilizador") + "</p>";
+                var html = "<p id='labelUsername>" + sessionStorage.getItem("utilizador") + "</p>";
                 document.getElementById("dados").innerHTML += html;
                 document.getElementById("password").value = "";
             },
