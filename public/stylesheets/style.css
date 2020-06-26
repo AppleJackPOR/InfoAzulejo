@@ -378,7 +378,7 @@ a span:nth-child(4) {
 }
 
 .botao {
-    width: 99%;
+    width: 70%;
     min-width: 230px;
     height: 40px;
     color: #000;
@@ -490,4 +490,8 @@ a span:nth-child(4) {
 
 #btnInserirAzulejo {
     margin-left: 40%;
+}
+
+#labelUsername {
+    color: rgba(238, 238, 238, 0.692);
 }
