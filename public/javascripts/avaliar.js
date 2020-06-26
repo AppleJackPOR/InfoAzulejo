@@ -90,6 +90,8 @@ function inserir()
            
         }
     });
+	window.location.href = "azulejo";
+    alert("Azulejo Aceite");
 }
 
 
@@ -115,6 +117,8 @@ function apagar()
            
         }
     });
+	window.location.href = "azulejo";
+    alert("Azulejo Rejeitado");
 }
 
 

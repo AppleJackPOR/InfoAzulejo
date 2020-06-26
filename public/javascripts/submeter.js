@@ -183,14 +183,14 @@ $(window).on('load', function() {
                 body
             ),
             success: function(res, status) {
-                window.location.href = '/';
             }
 
             ,
             error: function() { alert(JSON.stringify('error')); }
 
         });
-
+        alert("Azulejo Submetido");
+        window.location.href = '/';
     };
 
 

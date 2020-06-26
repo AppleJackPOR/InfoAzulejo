@@ -43,10 +43,11 @@ $(window).on('load', function() {
             }
 
             for (i in res) {
-                console.log(res[i]._id);
-                L.marker([res[i].Localizacao.coordinates[1], res[i].Localizacao.coordinates[0]], { id: res[i]._id }).addTo(map).on('click', markerClick);
+				if (res[i].Estado == "Aceite") {
+					console.log(res[i]._id);
+					L.marker([res[i].Localizacao.coordinates[1], res[i].Localizacao.coordinates[0]], { id: res[i]._id }).addTo(map).on('click', markerClick);
 
-
+				}
             }
         }
     });
