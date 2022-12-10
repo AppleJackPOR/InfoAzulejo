@@ -10,7 +10,7 @@
         "debug": "~2.6.9",
         "dotenv": "^8.2.0",
         "esri-leaflet": "^2.3.3",
-        "express": "~4.16.1",
+        "express": "~4.17.3",
         "hbs": "~4.0.4",
         "http-errors": "~1.6.3",
         "leaflet": "^1.6.0",
