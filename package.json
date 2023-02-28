@@ -11,7 +11,7 @@
         "dotenv": "^8.2.0",
         "esri-leaflet": "^2.3.3",
         "express": "~4.16.1",
-        "hbs": "~4.0.4",
+        "hbs": "~4.2.0",
         "http-errors": "~1.6.3",
         "leaflet": "^1.6.0",
         "mongodb": "^3.5.5",
